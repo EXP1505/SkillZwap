@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillZwap - Edit Profile</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+             <img src="logo.png" alt="SkillZwap Logo" />
+        </div>
+        <div class="nav-menu">
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="/marketplace" class="nav-link">Marketplace</a>
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="edit-profile-header">
+            <h1>✏️ Edit Your Profile</h1>
+            <p>Update your information and manage your skills</p>
+        </div>
+
+        <div class="edit-profile-container">
+            <div class="edit-profile-card">
+                <form id="editProfileForm" enctype="multipart/form-data">
+                    <!-- Profile Picture Section -->
+                    <div class="profile-picture-section">
+                        <h3>📸 Profile Picture</h3>
+                        <div class="current-picture">
+                            <img id="currentProfilePic" src="peopleimg/me.png" alt="Current Profile Picture" class="profile-pic-preview">
+                        </div>
+                        <div class="form-group">
+                            <label for="profilePicture">Choose New Picture:</label>
+                            <input type="file" id="profilePicture" name="profilePicture" accept="image/*" class="file-input">
+                            <div class="file-input-label">
+                                <span>📁 Choose File</span>
+                            </div>
+                        </div>
+                        <div class="picture-preview" id="picturePreview" style="display: none;">
+                            <h4>Preview:</h4>
+                            <img id="previewImage" class="profile-pic-preview" alt="Preview">
+                        </div>
+                    </div>
+
+                    <!-- Personal Information Section -->
+                    <div class="personal-info-section">
+                        <h3>👤 Personal Information</h3>
+                        <div class="form-group">
+                            <label for="fullName">Full Name:</label>
+                            <input type="text" id="fullName" name="fullName" required placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" id="email" name="email" required placeholder="Enter your email" readonly>
+                            <small class="form-note">Email cannot be changed</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="bio">Bio (Optional):</label>
+                            <textarea id="bio" name="bio" rows="3" placeholder="Tell others about yourself..."></textarea>
+                        </div>
+                    </div>
+
+                    <!-- Skills Section -->
+                    <div class="skills-section">
+                        <h3>🎓 Skills I Can Teach</h3>
+                        <div class="skills-container">
+                            <div id="teachSkillsList" class="current-skills">
+                                <!-- Skills will be loaded here -->
+                            </div>
+                            <div class="add-skill-section">
+                                <div class="form-group">
+                                    <input type="text" id="newTeachSkill" placeholder="Add a skill you can teach..." maxlength="50">
+                                    <button type="button" id="addTeachSkillBtn" class="btn btn-success btn-small">+ Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="skills-section">
+                        <h3>📚 Skills I Want to Learn</h3>
+                        <div class="skills-container">
+                            <div id="learnSkillsList" class="current-skills">
+                                <!-- Skills will be loaded here -->
+                            </div>
+                            <div class="add-skill-section">
+                                <div class="form-group">
+                                    <input type="text" id="newLearnSkill" placeholder="Add a skill you want to learn..." maxlength="50">
+                                    <button type="button" id="addLearnSkillBtn" class="btn btn-success btn-small">+ Add</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Form Actions -->
+                    <div class="form-actions">
+                        <button type="button" id="cancelBtn" class="btn btn-secondary">Cancel</button>
+                        <button type="submit" class="btn btn-primary">💾 Save Changes</button>
+                    </div>
+
+                    <!-- Messages -->
+                    <div id="successMessage" class="success-message">
+                        Profile updated successfully!
+                    </div>
+                    <div id="errorMessage" class="error-message">
+                        Error updating profile. Please try again.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Skill Confirmation Modal -->
+    <div id="deleteSkillModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>🗑️ Remove Skill</h3>
+            <p>Are you sure you want to remove this skill?</p>
+            <div class="modal-actions">
+                <button id="confirmDeleteBtn" class="btn btn-danger">Yes, Remove</button>
+                <button id="cancelDeleteBtn" class="btn btn-secondary">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/edit.js"></script>
+</body>
+</html>

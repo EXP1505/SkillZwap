@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillZwap - Marketplace</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+             <img src="logo.png" alt="SkillZwap Logo" />
+        </div>
+        <div class="nav-menu">
+            <a href="/dashboard" class="nav-link">Dashboard</a>
+            <a href="/marketplace" class="nav-link active">Marketplace</a>
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="marketplace-header">
+            <h1>🏪 Skill Marketplace</h1>
+            <p>Discover all available skills and connect with learners and teachers</p>
+        </div>
+
+        <div class="search-section">
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search by skill, name, or keyword...">
+                <button id="searchBtn" class="btn btn-primary">Search</button>
+                <button id="clearBtn" class="btn btn-secondary">Clear</button>
+            </div>
+        </div>
+
+        <div class="marketplace-stats">
+            <div class="stat-card">
+                <h3 id="totalUsers">0</h3>
+                <p>Total Users</p>
+            </div>
+            <div class="stat-card">
+                <h3 id="totalSkills">0</h3>
+                <p>Unique Skills</p>
+            </div>
+        </div>
+
+        <div class="users-grid" id="usersGrid">
+            <div class="loading">Loading users...</div>
+        </div>
+    </div>
+
+    <!-- Session Request Modal -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Send Session Request</h3>
+            <form id="requestForm">
+                <input type="hidden" id="recipientId">
+                <div class="form-group">
+                    <label for="skillSelect">Select Skill:</label>
+                    <select id="skillSelect" required>
+                        <option value="">Choose a skill</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="requestMessage">Message (optional):</label>
+                    <textarea id="requestMessage" rows="3" 
+                              placeholder="Tell them why you want to learn this skill..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/marketplace.js"></script>
+</body>
+</html>

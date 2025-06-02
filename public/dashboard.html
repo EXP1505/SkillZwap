@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillZwap - Dashboard</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-brand">
+             <img src="logo.png" alt="SkillZwap Logo" />
+        </div>
+        <div class="nav-menu">
+            <a href="/dashboard" class="nav-link active">Dashboard</a>
+            <a href="/marketplace" class="nav-link">Marketplace</a>
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="dashboard-header">
+            <h1>Welcome, <span id="userName2">Loading...</span>!</h1>
+            <p>Find people to learn from and share your skills</p>
+        </div>
+
+        <div class="dashboard-grid">
+            <!-- User Profile Card -->
+            <div class="card">
+                <h3>Your Profile</h3>
+                <div id="userProfile">
+                    <div class="user">
+                        <img src="peopleimg/me.png" class="dp" alt="SkillZwap Logo" />
+                        <h3><span id="userName">Loading...</span></h3>
+                    </div>
+                    <div class="skill-section">
+                        <h4>🎓 Skills I Teach:</h4>
+                        <div id="teachSkills" class="skills-list"></div>
+                    </div>
+                    <div class="skill-section">
+                        <h4>📚 Skills I Want to Learn:</h4>
+                        <div id="learnSkills" class="skills-list"></div>
+                    </div>
+                </div>
+                <!-- Edit Profile Button -->
+                <div class="profile-actions">
+                    <a href="edit-profile.html" class="btn btn-primary">✏️ Edit Profile</a>
+                </div>
+            </div>
+
+            <!-- Skill Matches -->
+            <div class="matches">
+                <h3>🎯 Perfect Matches</h3>
+                <p>People who can teach what you want to learn</p>
+                <div id="matches" class="matches-list">
+                    <!-- <div class="loading">Loading matches...</div> -->
+                     <div class="people">
+                        <div class="face">
+                            <img src="peopleimg/mark.png" class="dp" alt="SkillZwap Logo" />
+                            <img src="peopleimg/markbg.png" class="bg" alt="SkillZwap Logo" />
+                            <img src="peopleimg/markbg2.png" class="bg2" alt="SkillZwap Logo" />
+                            <h4 >Mark Grayson</h4>
+                            <div class="more-info">
+                                <p><b>Skill:</b> Advanced Pain Tolerance & Rapid Recovery Under Duress (APRUD)<p>
+                                <p><b>Description:</b> Master the art of getting launched into orbit, slammed through buildings, and still limping back for round two with a witty comeback.</p>
+                                <p><b><i>Contact info- </i>email: </b> mark2000gray@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="face">
+                            <img src="peopleimg/eve.png" class="dp" alt="SkillZwap Logo" />
+                            <img src="peopleimg/evebg.png" class="bg" alt="SkillZwap Logo" />
+                            <img src="peopleimg/evebg2.png" class="bg2" alt="SkillZwap Logo" />
+                            <h4>Samantha Eve Wilkins</h4>
+                            <div class="more-info">
+                                <p><b>Skill:</b> Reality Warping & Creative Multitasking</p>
+                                <p><b>Description:</b> Bend matter to your will while flawlessly playing piano—because why not reshape the world and drop a killer melody? 🎹✨</p>
+                                <p><b><i>Contact info- </i>email: </b> sam2000eve@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="face">
+                            <img src="peopleimg/cecil.png" class="dp" alt="SkillZwap Logo" />
+                            <img src="peopleimg/cecilbg.png" class="bg" alt="SkillZwap Logo" />
+                            <img src="peopleimg/cecilbg2.png" class="bg2" alt="SkillZwap Logo" />
+                            <h4>Cecil Stedman</h4>
+                            <div class="more-info">
+                                <p><b>Skill:</b> Supernatural Narration & Impossibly Versatile Music Skills</p>
+                                <p><b>Description:</b> Command covert ops with a deadpan voice and flawlessly play any instrument like you've done it in every lifetime—because saving the world needs a killer soundtrack. 🎤🎸🎹</p>
+                                <p><b><i>Contact info- </i>email: </b> cecilsws1@gmail.com</p>
+                            </div>
+                        </div>
+                     </div>
+                </div>
+            </div>
+
+            <!-- Session Requests -->
+            <div class="card">
+                <h3>📨 Session Requests</h3>
+                <div class="tabs">
+                    <button class="tab-btn active" data-tab="received">Received</button>
+                    <button class="tab-btn" data-tab="sent">Sent</button>
+                </div>
+                
+                <div id="receivedRequests" class="tab-content active">
+                    <div class="loading">Loading requests...</div>
+                </div>
+                
+                <div id="sentRequests" class="tab-content">
+                    <div class="loading">Loading requests...</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Session Request Modal -->
+    <div id="requestModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h3>Send Session Request</h3>
+            <form id="requestForm">
+                <input type="hidden" id="recipientId">
+                <div class="form-group">
+                    <label for="skillSelect">Select Skill:</label>
+                    <select id="skillSelect" required>
+                        <option value="">Choose a skill</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="requestMessage">Message (optional):</label>
+                    <textarea id="requestMessage" rows="3" 
+                              placeholder="Tell them why you want to learn this skill..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Send Request</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/dashboard.js"></script>
+</body>
+</html>

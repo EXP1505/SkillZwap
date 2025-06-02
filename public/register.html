@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SkillZwap - Register</title>
+    <link rel="icon" href="icon.png">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="auth-card">
+            <div class="logo">
+                 <img src="logohtml.png" alt="SkillZwap Logo" />
+                <p>Learn & Teach Together</p>
+            </div>
+            
+            <form id="registerForm" class="auth-form">
+                <h2>Register</h2>
+                
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="skillsToTeach">Skills I can teach (comma-separated):</label>
+                    <input type="text" id="skillsToTeach" name="skillsToTeach" 
+                           placeholder="e.g., JavaScript, Guitar, Cooking" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="skillsToLearn">Skills I want to learn (comma-separated):</label>
+                    <input type="text" id="skillsToLearn" name="skillsToLearn" 
+                           placeholder="e.g., Python, Piano, Photography" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Register</button>
+                
+                <div id="errorMessage" class="error-message"></div>
+                
+                <p class="auth-link">
+                    Already have an account? <a href="/">Login here</a>
+                </p>
+            </form>
+        </div>
+    </div>
+    
+    <script src="js/auth.js"></script>
+</body>
+</html>
