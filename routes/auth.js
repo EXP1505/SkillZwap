@@ -67,4 +67,13 @@ router.post('/logout', (req, res) => {
   });
 });
 
+// Authentication check endpoint
+router.get('/check', (req, res) => {
+  if (req.session && req.session.userId) {
+    res.json({ authenticated: true });
+  } else {
+    res.status(401).json({ authenticated: false });
+  }
+});
+
 module.exports = router;

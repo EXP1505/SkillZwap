@@ -41,7 +41,20 @@ router.get('/matches', isAuthenticated, async (req, res) => {
   }
 });
 
-// You can add other dashboard related routes here, for example:
-// Create session requests, accept requests, list requests, etc.
+// Update user profile
+router.put('/user', async (req, res) => {
+  if (!req.session.userId) return res.status(401).json({ error: 'Unauthorized' });
+  const { name, bio, skillsToTeach, skillsToLearn } = req.body;
+  try {
+    const user = await User.findByIdAndUpdate(
+      req.session.userId,
+      { name, bio, skillsToTeach, skillsToLearn },
+      { new: true }
+    );
+    res.json({ success: true, user });
+  } catch (err) {
+    res.status(500).json({ error: 'Update failed' });
+  }
+});
 
 module.exports = router;
